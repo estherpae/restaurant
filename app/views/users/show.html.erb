@@ -10,5 +10,14 @@
   <%= @user.email %>
 </p>
 
+<p> <strong>Reviews: </strong> </p>
+  <ul>
+    <% @user.reviews.each do |review| %>
+    <li>
+      <b><%= review.item.name %></b> from <i><%= review.restaurant_place.name %></i>: <p><%= review.contents %></p>
+    </li>
+    <% end %>
+  </ul>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

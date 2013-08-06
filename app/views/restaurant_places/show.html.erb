@@ -10,5 +10,15 @@
   <%= @restaurant_place.address %>
 </p>
 
+<p><strong>Items:</strong></p>
+  <ul>
+    <% @restaurant_place.reviews.each do |review| %>
+    <li>
+      <%= review.item.name %>
+    </li>
+    <% end %>
+  </ul>
+
+
 <%= link_to 'Edit', edit_restaurant_place_path(@restaurant_place) %> |
 <%= link_to 'Back', restaurant_places_path %>

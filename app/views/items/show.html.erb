@@ -10,5 +10,14 @@
   <%= @item.restaurant_place.name %>
 </p>
 
+<p> <strong>Reviews: </strong> </p>
+  <ul>
+    <% @item.reviews.each do |review| %>
+    <li>
+      <b><%= review.item.name %></b> from <i><%= review.restaurant_place.name %></i>: <p><%= review.contents %></p>
+    </li>
+    <% end %>
+  </ul>
+
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
