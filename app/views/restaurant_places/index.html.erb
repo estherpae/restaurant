@@ -1,0 +1,29 @@
+<h1>Listing restaurant_places</h1>
+
+<table class="table content-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurant_places.each do |restaurant_place| %>
+      <tr>
+        <td><%= restaurant_place.name %></td>
+        <td><%= restaurant_place.address %></td>
+        <td><%= link_to 'Show', restaurant_place, :class => 'btn btn-default btn-small' %></td>
+        <td><%= link_to 'Edit', edit_restaurant_place_path(restaurant_place), :class => 'btn btn-warning btn-small' %></td>
+        <td><%= link_to 'Destroy', restaurant_place, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger btn-small' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant place', new_restaurant_place_path, :class => 'btn btn-primary btn-large' %>
