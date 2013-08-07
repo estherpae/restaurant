@@ -14,7 +14,7 @@
   <ul>
     <% @restaurant_place.reviews.each do |review| %>
     <li>
-      <%= review.item.name %>
+      <%= link_to review.item.name, item_url(review.item.id)  %>
     </li>
     <% end %>
   </ul>
