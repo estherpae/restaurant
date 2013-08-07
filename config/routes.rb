@@ -1,4 +1,10 @@
 Restaurant::Application.routes.draw do
+  root "restaurant_places#index"
+
+  get '/signin' => 'sessions#new', :as => 'sign_in'
+  post '/sessions/create' => 'sessions#create'
+  delete '/signout' => 'sessions#destroy', :as => "sign_out"
+
   resources :reviews
 
   resources :items
@@ -47,7 +53,7 @@ Restaurant::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
